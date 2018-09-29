@@ -5,7 +5,7 @@
   "main": "src/index.tsx",
   "scripts": {
     "test": "mocha --require ts-node/register test/**/*.ts",
-    "build": "webpack && copy src\\index.html doc\\",
+    "build": "webpack && copy src\\index.html docs\\",
     "watch": "webpack --watch"
   },
   "author": "svatal",
