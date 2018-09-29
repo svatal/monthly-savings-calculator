@@ -16,14 +16,8 @@ export default class App extends React.Component<{}, IState> {
     super({});
     this.updateTargets = this.updateTargets.bind(this);
     this.state = {
-      targets: [
-        { cost: 10, inMonths: 2, name: "test" },
-        { cost: 1, inMonths: 3, name: "test2" }
-      ],
-      savings: [
-        { value: 5, fromMonth: 1, tillMonth: 2 },
-        { value: 1, fromMonth: 3, tillMonth: 3 }
-      ]
+      targets: [],
+      savings: []
     };
   }
 
