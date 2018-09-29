@@ -3,11 +3,13 @@ import * as d from "../data";
 import * as p from "../processor";
 import TargetsManager from "./targetsManager";
 import ResultsViewer from "./resultsViewer";
+import Milestones from "./milestones";
 import * as Grid from "react-bootstrap/lib/Grid";
 import * as Row from "react-bootstrap/lib/Row";
 
 interface IState {
   targets: d.ITarget[];
+  consolidatedTargets: d.ITarget[];
   savings: d.IMonthlySavings[];
 }
 
@@ -17,6 +19,7 @@ export default class App extends React.Component<{}, IState> {
     this.updateTargets = this.updateTargets.bind(this);
     this.state = {
       targets: [],
+      consolidatedTargets: [],
       savings: []
     };
   }
@@ -35,14 +38,18 @@ export default class App extends React.Component<{}, IState> {
         </Row>
         <Row>
           <ResultsViewer savings={this.state.savings} />
+          <Milestones
+            consolidatedTargets={this.state.consolidatedTargets}
+            savings={this.state.savings}
+          />
         </Row>
       </Grid>
     );
   }
 
   updateTargets(targets: d.ITarget[]) {
-    let consolidated = p.consolidate(targets);
-    let savings = p.calculateSavingsNeeded(consolidated);
-    this.setState({ targets, savings });
+    let consolidatedTargets = p.consolidate(targets);
+    let savings = p.calculateSavingsNeeded(consolidatedTargets);
+    this.setState({ targets, consolidatedTargets, savings });
   }
 }
