@@ -6,3 +6,5 @@ If you really want to know what it should do except for beeing my first react ap
 
 - you can enter multiple targets (wishes) with cost and due time
 - the app calculates an optimal saving plan with respect to the minimal monthly saving amount
+
+https://svatal.github.io/monthly-savings-calculator/
